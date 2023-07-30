@@ -17,9 +17,11 @@ const getComputerSelection = () => {
     }
 }
 
-const computerSelection = getComputerSelection()
+let computerSelection = getComputerSelection()
 console.log(computerSelection)
 
+
+// Generate Round Result
 const playRound = (userSelection, computerSelection) => {
     switch (userSelection) {
         case 'rock' :
@@ -55,8 +57,6 @@ const playRound = (userSelection, computerSelection) => {
 }
 
 
-
 alert(playRound(UserSelection, computerSelection))
-
-// const userSelection = getUserChoice;
-// const computerSelection = getComputerChoice;
+const playRoundResult = playRound(UserSelection, computerSelection);
+alert(playRoundResult)
