@@ -51,6 +51,9 @@ const playGame = () => {
                             computerScore++
                             return 'The computer wins. Rock beats scissors.'
                     }
+                case '' :
+                    computerScore++
+                    return 'The computer wins. You gave an invalid answer'
                 default :
                     return 'You entered an invalid answer. This round is void.'
             }
@@ -64,7 +67,7 @@ const playGame = () => {
         playRoundResult = playRound(userSelection, computerSelection);
 
 
-        alert(`You picked ${userSelection}`)
+        confirm(`You picked ${userSelection}`)
         alert(`Computer picked ${computerSelection}`)
 
         console.log(`You picked ${userSelection}`)

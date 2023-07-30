@@ -57,6 +57,6 @@ const playRound = (userSelection, computerSelection) => {
 }
 
 
-alert(playRound(UserSelection, computerSelection))
+window.prompt(playRound(UserSelection, computerSelection))
 const playRoundResult = playRound(UserSelection, computerSelection);
 alert(playRoundResult)
