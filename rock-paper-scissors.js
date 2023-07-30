@@ -1,20 +1,11 @@
 // Generate User Choice
 const userInput = prompt("Choose between ROCK, PAPER, or SCISSORS.")
 
-const getUserChoice = userInput => {
-    userInput = userInput.toLowerCase();
-    if (userInput ==='rock' || userInput === 'paper' || userInput === 'scissors') {
-      return userInput;
-    } else {
-      return userInput;
-    }
-}
-// console.log(getUserChoice(userInput))
-// test works
-
+const UserSelection = userInput.toLowerCase();
+console.log(UserSelection);
 
 // Generate Computer Choice
-const getComputerChoice = () => {
+const getComputerSelection = () => {
     let randomNumber = Math.floor(Math.random() * 3);
     switch (randomNumber) {
         case 0:
@@ -23,49 +14,49 @@ const getComputerChoice = () => {
             return 'paper';
         case 2:   
             return 'scissors';
-        default:
-            return 'Error';
     }
 }
-// console.log(getComputerChoice())
-// test works
 
+const computerSelection = getComputerSelection()
+console.log(computerSelection)
 
-const determineRoundWinner = (getUserChoice, getComputerChoice) => {
-    switch (getUserChoice) {
+const playRound = (userSelection, computerSelection) => {
+    switch (userSelection) {
         case 'rock' :
-            switch (getComputerChoice) {
+            switch (computerSelection) {
                 case 'rock' :
-                    return alert('This round is a tie.')
+                    return 'This round is a tie.'
                 case 'scissors' :
-                    return alert('You win this round. Rock beats Scissors.')
+                    return 'You win this round. Rock beats Scissors.'
                 default :
-                    alert ('The computer wins. Paper beats Rock.' )
+                    'The computer wins. Paper beats Rock.'
             }
         case 'paper' :
-            switch (getComputerChoice) {
+            switch (computerSelection) {
                 case 'paper' :
-                    return alert('This round is a tie.')
+                    return 'This round is a tie.'
                 case 'rock' :
-                    return alert('You win this round. Paper beats Rock.')
+                    return 'You win this round. Paper beats Rock.'
                 default :
-                    alert('The computer wins. Scissors beat Paper.')
+                    'The computer wins. Scissors beat Paper.'
             }
         case 'scissors' :
-            switch (getComputerChoice) {
+            switch (computerSelection) {
                 case 'scissors' :
-                        return alert('This round is a tie.')
+                    return 'This round is a tie.'
                 case 'paper' :
-                    return alert('You win this round. Scissors beat Paper')
+                    return 'You win this round. Scissors beat Paper'
                 default :
-                    alert('The computer wins. Rock beats scissors.')
+                    'The computer wins. Rock beats scissors.'
             }
-        // default: 
-        //     return `Game error. ${userInput} is not a valid choice.`
+        default :
+            return 'You entered an invalid answer. This round is void.'
     }
 }
 
-alert(determineRoundWinner(getUserChoice, getComputerChoice))
+
+
+alert(playRound(UserSelection, computerSelection))
 
 // const userSelection = getUserChoice;
 // const computerSelection = getComputerChoice;
