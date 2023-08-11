@@ -9,7 +9,7 @@
 }
 
 body {
-    background-color: #2f2f2f;
+    background-color: #9abe99;
     color: #f6f6f6;
     font-family: 'Montserrat', Verdana, Tahoma, sans-serif;
     margin: 0 ;
@@ -24,13 +24,17 @@ body {
 }
 
 .title {
+    display: flex
+    justify-content: space-between;
+    width: 100%;
     font-size: 4em;
-    color: #ffcb74;
-    padding: 0;
+    color: #2f2f2f;
+    padding: 16px 0;;
     line-height: 1;
     margin-top: 80px;
     margin-bottom: 30px;
     text-align: center;
+    background-color: #ffcb74;
 }
 
 @media only screen and (max-width: 852px) {
@@ -74,7 +78,7 @@ h3 {
 }
 
 button {
-    background-color: #2f2f2f;
+    background-color: #9abe99;
     margin: 0;
     box-shadow: none;
     border: none;
@@ -93,37 +97,25 @@ button {
 }
 
 .container-player {
-    display: flex;
+    display: inline-flex;
     flex: 1;
+    width: 100%;
     justify-content: space-between;
-    align-items: stretch;
-    margin-top: 30px;
-    padding: 0;
 }
 
-button:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-}
 
-img {
-    max-height: 300px;
-    width: auto;     */
-    background-color: #2f2f2f;
-}
-
-img:hover {
+/* img:hover {
     filter: drop-shadow(0 0 0.5rem #855c16);
 }
 
 img:active {
     filter: drop-shadow(0 0 0.75rem #bd8b35);
-}
-
+} */
+/* 
 @media only screen and (max-width: 852px) {
     img {
       max-height:120px;
     }
     button {
         padding: 15px 0px;
-}
+} */
