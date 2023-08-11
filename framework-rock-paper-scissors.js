@@ -57,6 +57,6 @@ const playRound = (userSelection, computerSelection) => {
 }
 
 
-window.prompt(playRound(UserSelection, computerSelection))
+console.log(playRound(UserSelection, computerSelection))
 const playRoundResult = playRound(UserSelection, computerSelection);
-alert(playRoundResult)
+console.log(playRoundResult)

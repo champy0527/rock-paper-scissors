@@ -4,11 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <!-- <script src="framework-rock-paper-scissors.js"></script> -->
+    <link rel="stylesheet" href="styles.css">
     <script src="play-game.js"></script>
 </head>
 
 <body>
+    <h1 class="title">Rock, Paper, Scissors!</h1>
+    <div class="container-score">
+        <h2>Score Card</h2>
+        <div class="update-score">
+            <div class="player-scoroe">0</div>
+            <div>-</div>
+            <div class="computer-score">0</div>
+        </div>
+        <h3 class="players">Player - Computer</h3>
+    </div>
+    <div class="update-text"></div>
+    
+    <div class="container-player">
+        <button class="rock-button"><img src="images/rock.webp" class="rock player"></button>
+        
+        <button class="paper-button"><img src="images/paper.webp" class="paper player"></button>
+    
+        <button class="scissors-button"><img src="images/rock.webp" class="scissors player"></button>
+    </div>
+   
+
+
     <!-- <h1>Rock, Paper, Scissors!</h1>
 
     <p>Enter your choice from the following selection.</p>

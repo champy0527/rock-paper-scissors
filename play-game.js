@@ -68,28 +68,28 @@ const playGame = () => {
 
 
         confirm(`You picked ${userSelection}`)
-        alert(`Computer picked ${computerSelection}`)
+        console.log(`Computer picked ${computerSelection}`)
 
         console.log(`You picked ${userSelection}`)
         console.log(`Computer picked ${computerSelection}`)
 
         console.log(playRoundResult)
-        alert(playRoundResult);
+        console.log(playRoundResult);
     }
 }
 
 playGame();
 
-alert(`Your score is ${userScore}`)
-alert(`The computer's score is ${computerScore}`)
+console.log(`Your score is ${userScore}`)
+console.log(`The computer's score is ${computerScore}`)
 
 if (userScore > computerScore) {
     console.log(`You won with a record of ${userScore} wins and ${computerScore} losses`)
-    alert(`You won with a record of ${userScore} wins and ${computerScore} losses`)
+    console.log(`You won with a record of ${userScore} wins and ${computerScore} losses`)
 } else if (userScore < computerScore) {
     console.log(`You lost the game with a record of ${userScore} wins and ${computerScore} losses`)
-    alert(`You lost the game with a record of ${userScore} wins and ${computerScore} losses`)
+    console.log(`You lost the game with a record of ${userScore} wins and ${computerScore} losses`)
 } else {
     console.log(`This game is a tie. You won ${userScore} rounds and the computer won ${computerScore} rounds`)
-    alert(`This game is a tie. You won ${userScore} rounds and the computer won ${computerScore} rounds`)
+    console.log(`This game is a tie. You won ${userScore} rounds and the computer won ${computerScore} rounds`)
 }
