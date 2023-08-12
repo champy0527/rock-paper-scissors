@@ -2,83 +2,95 @@ let playRoundResult;
 let userScore = 0;
 let computerScore = 0;
 
-const playGame = () => {   
-    for (let i = 0; i < 5; i++) {
-        let randomNumber = Math.floor(Math.random() * 3);
-        const getComputerSelection = () => {
-            switch (randomNumber) {
-                case 0:
-                    return 'rock';
-                case 1:   
-                    return 'paper';
-                case 2:   
-                    return 'scissors';
-            }
-        }
+const rock = document.querySelectorAll('#rock');
+const paper = document.querySelectorAll('#paper');
+const scissors = document.querySelectorAll('#scissors');
 
-        const playRound = (userSelection, computerSelection) => {
-            switch (userSelection) {
+let userInput;
+
+
+//THIS IS MY ISSUE!
+rock.addEventListener('click', function () {
+    userInput === 'ROCK'
+})
+paper.addEventListener('click', function () {
+    userInput === 'PAPER'
+})
+scissors.addEventListener('click', function () {
+    userInput === 'SCISSORS'
+})
+
+
+let userSelection = userInput();
+
+//Computer Choice
+
+const getComputerSelection = () => {
+    let computerChoices = ['rock', 'paper','scissors']
+    return computerChoices[Math.floor(Math.random() * 3)]
+}
+
+const playRound = (userSelection, computerSelection) => {
+    switch (userSelection) {
+        case 'rock' :
+            switch (computerSelection) {
                 case 'rock' :
-                    switch (computerSelection) {
-                        case 'rock' :
-                            return 'This round is a tie.'
-                        case 'scissors' :
-                            userScore++
-                            return 'You win this round. Rock beats Scissors.'
-                        default :
-                            computerScore++
-                            return 'The computer wins. Paper beats Rock.'
-                    }
-                case 'paper' :
-                    switch (computerSelection) {
-                        case 'paper' :
-                            return 'This round is a tie.'
-                        case 'rock' :
-                            userScore++
-                            return 'You win this round. Paper beats Rock.'
-                        default :
-                        computerScore++
-                        return 'The computer wins. Scissors beat Paper.'
-                    }
+                    return 'This round is a tie.'
                 case 'scissors' :
-                    switch (computerSelection) {
-                        case 'scissors' :
-                            return 'This round is a tie.'
-                        case 'paper' :
-                            userScore++
-                            return 'You win this round. Scissors beat Paper'
-                        default :
-                            computerScore++
-                            return 'The computer wins. Rock beats scissors.'
-                    }
-                case '' :
-                    computerScore++
-                    return 'The computer wins. You gave an invalid answer'
+                    userScore++
+                    return 'You win this round. Rock beats Scissors.'
                 default :
-                    return 'You entered an invalid answer. This round is void.'
+                    computerScore++
+                    return 'The computer wins. Paper beats Rock.'
             }
-        }
-
-        let userInput = prompt("Choose between ROCK, PAPER, or SCISSORS.")
-        let computerSelection = getComputerSelection()
-        
-        const userSelection = userInput.toLowerCase();
-        
-        playRoundResult = playRound(userSelection, computerSelection);
-
-
-        confirm(`You picked ${userSelection}`)
-        console.log(`Computer picked ${computerSelection}`)
-
-        console.log(`You picked ${userSelection}`)
-        console.log(`Computer picked ${computerSelection}`)
-
-        console.log(playRoundResult)
-        console.log(playRoundResult);
+        case 'paper' :
+            switch (computerSelection) {
+                case 'paper' :
+                    return 'This round is a tie.'
+                case 'rock' :
+                    userScore++
+                    return 'You win this round. Paper beats Rock.'
+                default :
+                computerScore++
+                return 'The computer wins. Scissors beat Paper.'
+            }
+        case 'scissors' :
+            switch (computerSelection) {
+                case 'scissors' :
+                    return 'This round is a tie.'
+                case 'paper' :
+                    userScore++
+                    return 'You win this round. Scissors beat Paper'
+                default :
+                    computerScore++
+                    return 'The computer wins. Rock beats scissors.'
+            }
+        case '' :
+            computerScore++
+            return 'The computer wins. You gave an invalid answer'
+        default :
+            return 'You entered an invalid answer. This round is void.'
     }
 }
 
-playGame();
+
+ 
+let computerSelection = getComputerSelection()
+
+playRoundResult = playRound(userSelection, computerSelection);
+
+
+confirm(`You picked ${userSelection}`)
+console.log(`Computer picked ${computerSelection}`)
+
+console.log(`You picked ${userSelection}`)
+console.log(`Computer picked ${computerSelection}`)
+
+console.log(playRoundResult)
+console.log(playRoundResult);
+
+
+// playGame();
 
 console.log(`Your score is ${userScore}`)
 console.log(`The computer's score is ${computerScore}`)
