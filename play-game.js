@@ -1,18 +1,19 @@
-let playerScore = document.querySelector('.player-score');
-let computerScore = document.querySelector('computerScore')
+let pScore = document.querySelector('.pScore');
+let cScore = document.querySelector('cScore');
 const winner = document.querySelector('.winner');
 const choiceBtns = document.querySelectorAll('.choice-btn');
 const computerHand = document.querySelector('.computer-hand');
 const playerHand = document.querySelector('player-hand');
-const hands = document.querySelectorAll('.hands img'
+
+const hands = document.querySelectorAll('.hands'
 );
 
 let playerChoice; //playerChoice
 let computerChoice
 let playRoundResult;
 
-playerScore = 0;
-computerScore = 0;
+pScore = 0;
+cScore = 0;
 
  //establish computer choice
 const getComputerSelection = () => {
@@ -29,25 +30,20 @@ const getComputerSelection = () => {
 computerChoice = getComputerSelection();
 
 
-
-
 choiceBtns.forEach(choiceBtn => {
     choiceBtn.addEventListener('click', () => {
         console.log(computerChoice)
         playerChoice = choiceBtn.textContent;
         console.log(playerChoice)
-        
 
         playRound(playerChoice, computerChoice);
 
-        // Update images
-        playerHand.src = `images/player-hand/${playerChoice}.webp`;
-        computerHand.src = `images/computer-hand/${computerChoice}.webp`;
-    })
+        playerHand.src = `/images/${playerChoice}.webp`;
+        computerHand.src = `images/${computerChoice}.webp`;
+        
+    
+    })       
 })
-
-
-
 
 
 const playRound = (playerChoice, computerChoice) => {
@@ -59,9 +55,13 @@ const playRound = (playerChoice, computerChoice) => {
     if (playerChoice === 'rock') {
         if (computerChoice === 'scissors') {
             winner.textContent = 'Player wins!';
+            pScore++;
+            pScore.textContent;
             return;
         } else {
             winner.textContent = 'Computer Wins!';
+            cScore++;
+            cScore.textContent;
             return;
         }
     }
@@ -69,9 +69,13 @@ const playRound = (playerChoice, computerChoice) => {
     if (playerChoice === 'paper') {
         if (computerChoice === 'rock') {
             winner.textContent = 'Player wins!';
+            pScore++;
+            pScore.textContent;
             return;
         } else {
             winner.textContent = 'Computer Wins!';
+            cScore++;
+            cScore.textContent;
             return;
         } 
     }
@@ -79,9 +83,13 @@ const playRound = (playerChoice, computerChoice) => {
     if (playerChoice === 'scissors') {
         if (computerChoice === 'paper') {
             winner.textContent = 'Player wins!';
+            pScore++;
+            pScore.textContent;
             return;
         } else {
             winner.textContent = 'Computer Wins!';
+            cScore++;
+            cScore.textContent;
             return;
         }
     }

@@ -119,9 +119,22 @@ body {
 
 .container-pick {
     display: flex;
+    /* flex: 1;
+    justify-content: space-between;  */
 }
 
-.container-player {
+
+.hands {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.computer-hand {
+    transform: rotateY(180deg);
+}
+
+/* .container-player {
     display: flex;
     flex: 1;
     justify-content: flex-start;
@@ -131,7 +144,7 @@ body {
     display: flex;
     flex: 1;
     justify-content: flex-end;
-}
+} */
 
 
 @media only screen and (max-width: 852px) {
