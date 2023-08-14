@@ -1,5 +1,5 @@
 let pScore = document.querySelector('.pScore');
-let cScore = document.querySelector('cScore');
+let cScore = document.querySelector('.cScore');
 const winner = document.querySelector('.winner');
 const choiceBtns = document.querySelectorAll('.choice-btn');
 const computerHand = document.getElementById('computer-hand');
@@ -13,6 +13,7 @@ let playRoundResult;
 
 pScore = 0;
 cScore = 0;
+
 
  //establish computer choice
 const getComputerSelection = () => {
@@ -29,17 +30,8 @@ const getComputerSelection = () => {
 
 computerChoice = getComputerSelection();
 
-choiceBtns.forEach(choiceBtn => {
-    choiceBtn.addEventListener('click', () => {
-        playerChoice = choiceBtn.textContent;
-        playerHand.src = './images/player-hand/'+ playerChoice +'.webp'
-        // console.log(computerChoice) //works
-        // console.log(playerChoice) //works
 
-        playRound(playerChoice, computerChoice); //works
-    
-    })       
-})
+
 
 const updateScore = () => {
     pScore.textContent = pScore;
@@ -59,12 +51,10 @@ const playRound = (playerChoice, computerChoice) => {
         if (computerChoice === 'scissors') {
             winner.textContent = 'Player wins!';
             pScore++;
-            updateScore();
             return;
         } else {
             winner.textContent = 'Computer Wins!';
             cScore++;
-            updateScore();
             return;
         }
     }
@@ -73,12 +63,10 @@ const playRound = (playerChoice, computerChoice) => {
         if (computerChoice === 'rock') {
             winner.textContent = 'Player wins!';
             pScore++;
-            updateScore();
             return;
         } else {
             winner.textContent = 'Computer Wins!';
             cScore++;
-            updateScore();
             return;
         } 
     }
@@ -87,12 +75,10 @@ const playRound = (playerChoice, computerChoice) => {
         if (computerChoice === 'paper') {
             winner.textContent = 'Player wins!';
             pScore++;
-            updateScore();
             return;
         } else {
             winner.textContent = 'Computer Wins!';
             cScore++;
-            updateScore();
             return;
         }
     
@@ -100,6 +86,27 @@ const playRound = (playerChoice, computerChoice) => {
     
 }
 
+const updateRound = () => {
+    while (pScore < 6 || cScore < 6) {
+        //no dom event for this yet!
+        choiceBtns.forEach(choiceBtn => {
+            choiceBtn.addEventListener('click', () => {
+                playerChoice = choiceBtn.textContent;
+                playerHand.src = './images/player-hand/'+ playerChoice +'.webp'
+                // console.log(computerChoice) //works
+                // console.log(playerChoice) //works
+        
+                playRound(playerChoice, computerChoice); //works
+                updateScore();  
+            })    
+        console.log(pScore);
+        console.log(cScore); 
+        })
+        
+    }
+}
+
+updateRound();
 
 
 //task 3 - create an update score function. The update score function doesn't work. Rethink how this all links together!
