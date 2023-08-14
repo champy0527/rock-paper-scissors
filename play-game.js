@@ -1,5 +1,5 @@
-let pScore = document.querySelector('.pScore');
-let cScore = document.querySelector('.cScore');
+const pScore = document.querySelector('.pScore');
+const cScore = document.querySelector('.cScore');
 const winner = document.querySelector('.winner');
 const choiceBtns = document.querySelectorAll('.choice-btn');
 const computerHand = document.getElementById('computer-hand');
@@ -10,9 +10,6 @@ let image = document.querySelectorAll('.image');
 let playerChoice; //playerChoice
 let computerChoice
 let playRoundResult;
-
-pScore = 0;
-cScore = 0;
 
 
  //establish computer choice
@@ -28,18 +25,53 @@ const getComputerSelection = () => {
     }
 }
 
-computerChoice = getComputerSelection();
+let wholeWinner;
+
+image.forEach(image => {
+    image.addEventListener('animationend', function(){
+        this.style.animation = '';
+    })
+})
 
 
+const playGame = () => {
 
+    choiceBtns.forEach(choiceBtn => {
+        choiceBtn.addEventListener('click', () => {
+            
+            playerHand.style.animation = "shakeHand 0.75s ease";
+            computerHand.style.animation = "shakeHand 0.75s ease";
+            
+            if(playerScore > 5 || computerScore > 5)  {
+                return;
+            }
+    
+            playerChoice = choiceBtn.textContent;
+            playerHand.src = './images/player-hand/'+ playerChoice +'.webp'
+            
+            // console.log(computerChoice) //works
+            // console.log(playerChoice) //works
+            
+            playRound(playerChoice, computerChoice); //works
+        
+            
+        })       
+    })
+    
 
-const updateScore = () => {
-    pScore.textContent = pScore;
-    cScore.textContent = cScore;
 }
 
+// const updateScore = () => {
+//      pScore.textContent = playerScore;
+//     cScore.textContent = cScore;
+// }
 
+
+let playerScore = 1;
+let computerScore = 1;
 const playRound = (playerChoice, computerChoice) => {
+
+    computerChoice = getComputerSelection();
     computerHand.src = './images/computer-hand/'+ computerChoice +'.webp'
 
     if (playerChoice === computerChoice) {
@@ -49,65 +81,45 @@ const playRound = (playerChoice, computerChoice) => {
 
     if (playerChoice === 'rock') {
         if (computerChoice === 'scissors') {
+            pScore.textContent = playerScore++;
             winner.textContent = 'Player wins!';
-            pScore++;
             return;
         } else {
+            cScore.textContent = computerScore++;
             winner.textContent = 'Computer Wins!';
-            cScore++;
             return;
         }
     }
 
     if (playerChoice === 'paper') {
         if (computerChoice === 'rock') {
+            pScore.textContent = playerScore++;
             winner.textContent = 'Player wins!';
-            pScore++;
             return;
         } else {
+            cScore.textContent = computerScore++;
             winner.textContent = 'Computer Wins!';
-            cScore++;
             return;
         } 
     }
 
     if (playerChoice === 'scissors') {
         if (computerChoice === 'paper') {
+            pScore.textContent = playerScore++;
             winner.textContent = 'Player wins!';
-            pScore++;
             return;
         } else {
+            cScore.textContent = computerScore++;
             winner.textContent = 'Computer Wins!';
-            cScore++;
             return;
         }
-    
     }
+
+    
     
 }
 
-const updateRound = () => {
-    while (pScore < 6 || cScore < 6) {
-        //no dom event for this yet!
-        choiceBtns.forEach(choiceBtn => {
-            choiceBtn.addEventListener('click', () => {
-                playerChoice = choiceBtn.textContent;
-                playerHand.src = './images/player-hand/'+ playerChoice +'.webp'
-                // console.log(computerChoice) //works
-                // console.log(playerChoice) //works
-        
-                playRound(playerChoice, computerChoice); //works
-                updateScore();  
-            })    
-        console.log(pScore);
-        console.log(cScore); 
-        })
-        
-    }
-}
-
-updateRound();
-
+playGame();
 
 //task 3 - create an update score function. The update score function doesn't work. Rethink how this all links together!
 
