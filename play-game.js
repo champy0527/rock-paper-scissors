@@ -2,11 +2,10 @@ let pScore = document.querySelector('.pScore');
 let cScore = document.querySelector('cScore');
 const winner = document.querySelector('.winner');
 const choiceBtns = document.querySelectorAll('.choice-btn');
-const computerHand = document.querySelector('.computer-hand');
-const playerHand = document.querySelector('player-hand');
+const computerHand = document.getElementById('computer-hand');
+const playerHand = document.getElementById('player-hand');
+let image = document.querySelectorAll('.image');
 
-const hands = document.querySelectorAll('.hands'
-);
 
 let playerChoice; //playerChoice
 let computerChoice
@@ -21,32 +20,36 @@ const getComputerSelection = () => {
     switch (randomNumber) {
         case 0:
             return 'rock';
-        case 1:   
+        case 1: 
             return 'paper';
         case 2:   
             return 'scissors';
     }
 }
-computerChoice = getComputerSelection();
 
+computerChoice = getComputerSelection();
 
 choiceBtns.forEach(choiceBtn => {
     choiceBtn.addEventListener('click', () => {
-        console.log(computerChoice)
         playerChoice = choiceBtn.textContent;
-        console.log(playerChoice)
+        playerHand.src = './images/player-hand/'+ playerChoice +'.webp'
+        // console.log(computerChoice) //works
+        // console.log(playerChoice) //works
 
-        playRound(playerChoice, computerChoice);
-
-        playerHand.src = `/images/${playerChoice}.webp`;
-        computerHand.src = `images/${computerChoice}.webp`;
-        
+        playRound(playerChoice, computerChoice); //works
     
     })       
 })
 
+const updateScore = () => {
+    pScore.textContent = pScore;
+    cScore.textContent = cScore;
+}
+
 
 const playRound = (playerChoice, computerChoice) => {
+    computerHand.src = './images/computer-hand/'+ computerChoice +'.webp'
+
     if (playerChoice === computerChoice) {
         winner.textContent = `It's a draw!`;
         return;
@@ -56,12 +59,12 @@ const playRound = (playerChoice, computerChoice) => {
         if (computerChoice === 'scissors') {
             winner.textContent = 'Player wins!';
             pScore++;
-            pScore.textContent;
+            updateScore();
             return;
         } else {
             winner.textContent = 'Computer Wins!';
             cScore++;
-            cScore.textContent;
+            updateScore();
             return;
         }
     }
@@ -70,12 +73,12 @@ const playRound = (playerChoice, computerChoice) => {
         if (computerChoice === 'rock') {
             winner.textContent = 'Player wins!';
             pScore++;
-            pScore.textContent;
+            updateScore();
             return;
         } else {
             winner.textContent = 'Computer Wins!';
             cScore++;
-            cScore.textContent;
+            updateScore();
             return;
         } 
     }
@@ -84,13 +87,37 @@ const playRound = (playerChoice, computerChoice) => {
         if (computerChoice === 'paper') {
             winner.textContent = 'Player wins!';
             pScore++;
-            pScore.textContent;
+            updateScore();
             return;
         } else {
             winner.textContent = 'Computer Wins!';
             cScore++;
-            cScore.textContent;
+            updateScore();
             return;
         }
+    
     }
+    
 }
+
+
+
+//task 3 - create an update score function. The update score function doesn't work. Rethink how this all links together!
+
+
+//player hand function change -- not needed in the end
+//player hand changes on selection
+// const playerChangeImage = (playerChoice) => {
+//     if (playerChoice === 'rock') {
+//         playerHand.src = './images/player-hand/rock.webp'
+//         return;
+//     }
+//     if (playerChoice === 'paper') {
+//         playerHand.src = './images/player-hand/paper.webp'
+//         return;
+//     }
+//     if (playerChoice === 'scissors') {
+//         playerHand.src = './images/player-hand/scissors.webp'
+//         return;
+//     }
+// }

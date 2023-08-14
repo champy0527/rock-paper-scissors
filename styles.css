@@ -130,9 +130,9 @@ body {
     justify-content: space-between;
 }
 
-.computer-hand {
+/* #computer-hand {
     transform: rotateY(180deg);
-}
+} */
 
 /* .container-player {
     display: flex;
