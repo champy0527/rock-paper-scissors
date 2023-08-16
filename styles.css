@@ -119,6 +119,8 @@ body {
 
 .container-pick {
     display: flex;
+    max-width: 100%;
+
     /* flex: 1;
     justify-content: space-between;  */
 }
@@ -127,31 +129,28 @@ body {
 .hands {
     display: flex;
     flex: 1;
-    justify-content: space-between;
+    justify-content: space-around;
+    padding: 0 16px;
 }
 
 
-/* #computer-hand {
-    transform: rotateY(180deg);
-} */
 
-/* .container-player {
+#player-hand {
     display: flex;
     flex: 1;
-    justify-content: flex-start;
+    max-width: 50%;
 }
 
-.container-computer {
+#computer-hand {
     display: flex;
     flex: 1;
-    justify-content: flex-end;
-} */
+    max-width: 50%;
+}
 
 
 @media only screen and (max-width: 852px) {
-    img {
-      max-width:100%;
-    }
+
+    
     .container-buttons {
         flex-direction: column;
     }
