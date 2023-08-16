@@ -49,11 +49,8 @@ const playGame = () => {
             playerChoice = choiceBtn.textContent;
             playerHand.src = './images/player-hand/'+ playerChoice +'.webp'
             
-            // console.log(computerChoice) //works
-            // console.log(playerChoice) //works
-            
-            playRound(playerChoice, computerChoice); //works
-        
+
+            playRound(playerChoice, computerChoice); 
             
         })       
     })
@@ -61,10 +58,6 @@ const playGame = () => {
 
 }
 
-// const updateScore = () => {
-//      pScore.textContent = playerScore;
-//     cScore.textContent = cScore;
-// }
 
 
 let playerScore = 1;
@@ -120,23 +113,3 @@ const playRound = (playerChoice, computerChoice) => {
 }
 
 playGame();
-
-//task 3 - create an update score function. The update score function doesn't work. Rethink how this all links together!
-
-
-//player hand function change -- not needed in the end
-//player hand changes on selection
-// const playerChangeImage = (playerChoice) => {
-//     if (playerChoice === 'rock') {
-//         playerHand.src = './images/player-hand/rock.webp'
-//         return;
-//     }
-//     if (playerChoice === 'paper') {
-//         playerHand.src = './images/player-hand/paper.webp'
-//         return;
-//     }
-//     if (playerChoice === 'scissors') {
-//         playerHand.src = './images/player-hand/scissors.webp'
-//         return;
-//     }
-// }
